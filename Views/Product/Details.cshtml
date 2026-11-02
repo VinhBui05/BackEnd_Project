@@ -1,0 +1,36 @@
+@model BackEnd_Project.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết Pizza";
+}
+
+<h2 class="mb-4">🍕 Chi tiết Pizza</h2>
+
+<div class="card" style="max-width: 600px;">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">@Model.Name</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-4">Mã sản phẩm</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
+
+            <dt class="col-sm-4">Tên Pizza</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Giá</dt>
+            <dd class="col-sm-8">@Model.Price.ToString("N0") VNĐ</dd>
+
+            <dt class="col-sm-4">Danh mục</dt>
+            <dd class="col-sm-8">@Model.Category</dd>
+
+            <dt class="col-sm-4">Mô tả</dt>
+            <dd class="col-sm-8">
+                @(string.IsNullOrEmpty(Model.Description) ? "Không có mô tả" : Model.Description)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Index" class="btn btn-secondary">← Quay về danh sách</a>
+    </div>
+</div>
